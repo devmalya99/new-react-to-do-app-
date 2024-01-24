@@ -20,6 +20,12 @@ function App() {
       setNewTask("")
     }
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        addNewTask(e);
+      }
+    }
+
 
 
   return (
@@ -31,10 +37,15 @@ function App() {
       <div className="form">
         <input onChange={handleInputChange}  
         type="text"
-        value={newTask} />
+        value={newTask}
+        onKeyDown={handleKeyDown}
+         />
+
+
         <button onClick={addNewTask}>
           <span>Add</span>
         </button>
+        
       </div>
       <div>
         <ol>
